@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="read_write" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+        <deployment type="dockerfile">
+            <settings>
+                <option name="containerName" value="system_programming_read_write" />
+                <option name="sourceFilePath" value="read_write/Dockerfile" />
+            </settings>
+        </deployment>
+        <method v="2" />
+    </configuration>
+</component>
