@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <fcntl.h>
+#include <unistd.h>
 
 int main() {
     int fd = open("./temp.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
@@ -24,6 +25,9 @@ int main() {
     }
 
     printf("File Descriptor temp2.txt: %d \n", fd);
+
+    if (close(fd) == -1)
+        perror("close");
 
     return 0;
 }

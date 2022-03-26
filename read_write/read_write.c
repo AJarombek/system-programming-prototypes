@@ -29,8 +29,16 @@ int main() {
         buf += ret;
     }
 
+    if (close(fd) == -1)
+        perror("close");
+
     fd = open("./upcoming_races.csv", O_RDWR, 0644);
     readBuffer(fd);
+
+    if (close(fd) == -1)
+        perror("close");
+
+    return 0;
 }
 
 void readBuffer(int fd) {
