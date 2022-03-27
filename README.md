@@ -30,9 +30,10 @@ docker push ajarombek/debian-system-programming:latest
 
 ### Files
 
-| Filename     | Description                                                                                  |
-|--------------|----------------------------------------------------------------------------------------------|
-| `.run`       | Run configurations for executing code from the repository with a Jetbrains IDE (i.e. CLion). |
-| `open_file`  | Code for opening a file using Linux system programming in C.                                 |
-| `read_write` | Code for reading and writing to a file using Linux system programming in C.                  |
-| `Dockerfile` | Base Dockerfile for a Linux machine with C and CMake installed.                              |
+| Filename                | Description                                                                                       |
+|-------------------------|---------------------------------------------------------------------------------------------------|
+| `.run`                  | Run configurations for executing code from the repository with a Jetbrains IDE (i.e. CLion).      |
+| `open_file`             | Code for opening a file using Linux system programming in C.                                      |
+| `positional_read_write` | Code for reading and writing to a file at specific positions using Linux system programming in C. |
+| `read_write`            | Code for reading and writing to a file using Linux system programming in C.                       |
+| `Dockerfile`            | Base Dockerfile for a Linux machine with C and CMake installed.                                   |
