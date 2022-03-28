@@ -129,4 +129,9 @@ int main() {
 
     // Print all the races
     readBuffer(fd);
+
+    if (close(fd) == -1)
+        perror("close");
+
+    return 0;
 }
