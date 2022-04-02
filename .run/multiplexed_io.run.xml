@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+    <configuration default="false" name="multiplexed_io" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+        <deployment type="dockerfile">
+            <settings>
+                <option name="containerName" value="system_programming_multiplexed_io" />
+                <option name="sourceFilePath" value="multiplexed_io/Dockerfile" />
+            </settings>
+        </deployment>
+        <method v="2" />
+    </configuration>
+</component>
