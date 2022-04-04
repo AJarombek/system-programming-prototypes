@@ -11,11 +11,12 @@ LABEL maintainer="andrew@jarombek.com" \
 WORKDIR src
 COPY . .
 RUN mkdir out
+COPY run.sh out
 
 WORKDIR out
 RUN cmake ..
 
 RUN cmake --build .
 
-CMD ["-c", "./multiplexed_io"]
+CMD ["-c", ". ./run.sh"]
 ENTRYPOINT ["/bin/bash"]
