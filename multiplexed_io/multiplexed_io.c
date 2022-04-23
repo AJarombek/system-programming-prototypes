@@ -1,13 +1,11 @@
-// System Programming Example: Perform Multiplexed I/O
+// System Programming Example: Perform Multiplexed I/O using  select()
 // Author: Andrew Jarombek
 // Date: 4/2/2022
 
 #include <stdio.h>
 #include <sys/time.h>
-#include <sys/types.h>
 #include <unistd.h>
 #include <time.h>
-#include <string.h>
 
 #define TIMEOUT 5
 
@@ -39,15 +37,6 @@ int main() {
     // Call select()
     printf("Invoking select(): %s", get_time());
     ret = select(STDIN_FILENO + 1, &read_fds, NULL, NULL, &tv);
-
-    char* message = "Hello!\n";
-    int write_result = write(STDIN_FILENO, message, strlen(message));
-
-    if (write_result == -1) {
-        perror("write");
-    }
-
-    close(STDIN_FILENO);
 
     if (ret == -1) {
         perror("select");

@@ -11,6 +11,8 @@ LABEL maintainer="andrew@jarombek.com" \
 WORKDIR src
 COPY . .
 RUN mkdir out
+
+COPY mileage_goals.csv out
 COPY run.sh out
 
 WORKDIR out

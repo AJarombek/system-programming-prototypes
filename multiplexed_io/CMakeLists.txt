@@ -8,4 +8,4 @@ project(open_file C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(multiplexed_io multiplexed_io.c)
-add_executable(print print.c)
+add_executable(poll poll.c)
