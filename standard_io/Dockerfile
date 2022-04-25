@@ -13,10 +13,12 @@ COPY . .
 RUN mkdir out
 
 COPY prs.csv out
+COPY run.sh out
+
 WORKDIR out
 RUN cmake ..
 
 RUN cmake --build .
 
-CMD ["-c", "./standard_io"]
+CMD ["-c", ". ./run.sh"]
 ENTRYPOINT ["/bin/bash"]
