@@ -7,5 +7,6 @@ project(standard_io C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(standard_io standard_io.c)
+add_executable(reading_characters reading_characters.c)
 add_executable(stats stats.c)
+add_executable(writing_characters writing_characters.c)

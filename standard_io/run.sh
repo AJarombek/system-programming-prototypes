@@ -5,4 +5,5 @@
 # Date: 4/24/2022
 
 bash -c ./stats
-bash -c ./standard_io
+bash -c ./reading_characters
+bash -c ./writing_characters

@@ -1,4 +1,4 @@
-// System Programming Example: Standard I/O
+// System Programming Example: Standard I/O for reading characters
 // Author: Andrew Jarombek
 // Date: 4/24/2022
 
@@ -34,5 +34,6 @@ int main() {
         index++;
     }
 
-    fclose(stream);
+    if (fclose(stream) == EOF)
+        printf("Failed to close prs.csv\n");
 }
