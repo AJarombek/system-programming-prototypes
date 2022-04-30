@@ -6,6 +6,7 @@ Code for using Linux Standard I/O in C.
 
 | Filename               | Description                                                      |
 |------------------------|------------------------------------------------------------------|
+| `binary_data.c`        | C code which uses Standard I/O to read and write binary data.    |
 | `CMakeLists.txt`       | CMake project for the `standard_io.c` program.                   |
 | `Dockerfile`           | Dockerfile for running the `standard_io.c` program using CMake.  |
 | `prs.csv`              | File to use in Standard I/O.                                     |

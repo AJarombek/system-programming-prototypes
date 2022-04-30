@@ -7,3 +7,4 @@
 bash -c ./stats
 bash -c ./reading_characters
 bash -c ./writing_characters
+bash -c ./binary_data
