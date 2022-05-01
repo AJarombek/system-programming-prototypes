@@ -39,6 +39,15 @@ int main() {
         return 1;
     }
 
+    // Retrieve the file descriptor of the stream.  fileno() is a system call.
+    int fd = fileno(out);
+
+    if (fd == -1) {
+        printf("Failed to get file descriptor of binary data file.\n");
+    } else {
+        printf("File descriptor of binary data file: %d.\n", fd);
+    }
+
     if (fclose(out)) {
         perror("fclose");
         printf("Failed to close data file\n");

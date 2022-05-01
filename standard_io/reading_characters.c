@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <limits.h>
+#include <errno.h>
 
 int main() {
     FILE *stream;
@@ -32,6 +33,52 @@ int main() {
         printf("\nLine %d\n", index);
         printf("%s", buf);
         index++;
+    }
+
+    // Seek from the start of the stream
+    int res = fseek(stream, 54, SEEK_SET);
+
+    if (res == -1) {
+        printf("Failed to seek in stream\n");
+    } else {
+        printf("\n\nLast Line\n");
+
+        if (fgets(buf, LINE_MAX, stream)) {
+            printf("%s", buf);
+        }
+    }
+
+    // First seek from the beginning of the stream, and then seek from the current position
+    fseek(stream, 54, SEEK_SET);
+    fseek(stream, 17, SEEK_CUR);
+
+    printf("\n\nLast Pace\n");
+
+    if (fgets(buf, LINE_MAX, stream)) {
+        printf("%s", buf);
+    }
+
+    // Seek backwards from the end of the stream
+    fseek(stream, -9, SEEK_END);
+
+    printf("\n\nLast Time and Pace\n");
+
+    if (fgets(buf, LINE_MAX, stream)) {
+        printf("%s", buf);
+    }
+
+    // Rewind the stream back to the start [same as fseek(stream, 0, SEEK_SET)]
+    errno = 0;
+    rewind(stream);
+
+    if (errno) {
+        printf("\nError occurred while rewinding the stream.\n");
+    } else {
+        printf("\n\nHeader Line\n");
+
+        if (fgets(buf, LINE_MAX, stream)) {
+            printf("%s", buf);
+        }
     }
 
     if (fclose(stream) == EOF)
