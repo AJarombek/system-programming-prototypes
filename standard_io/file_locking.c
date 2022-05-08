@@ -32,7 +32,7 @@ void* thread_two_exec(void *vargp) {
 
 int main() {
     FILE *stream;
-    stream = fopen("prs.csv", "r");
+    stream = fopen("prs.csv", "a");
 
     pthread_t thread_one;
     pthread_create(&thread_one, NULL, thread_one_exec, (void*) stream);
@@ -53,5 +53,6 @@ int main() {
         index++;
     }
 
+    fclose(stream);
     return 0;
 }
