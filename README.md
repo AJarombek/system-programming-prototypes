@@ -36,6 +36,7 @@ docker push ajarombek/debian-system-programming:latest
 | `memory_map`            | Code for mapping files into memory using Linux system programming in C.                           |
 | `multiplexed_io`        | Code for performing multiplexed I/O using Linux system programming in C.                          |
 | `open_file`             | Code for opening a file using Linux system programming in C.                                      |
+| `physical_disk_block`   | Code for retrieving the physical disk blocks of a file using Linux system programming in C.       |
 | `positional_read_write` | Code for reading and writing to a file at specific positions using Linux system programming in C. |
 | `read_write`            | Code for reading and writing to a file using Linux system programming in C.                       |
 | `scatter_gather_io`     | Code for Linux Scatter/Gather I/O using Linux system programming in C.                            |

@@ -41,6 +41,14 @@ int main() {
         return 1;
     }
 
+    // Advise the kernel that the data is read sequentially, thus enabling readahead.
+    // This is an optimization and not necessary for a basic example like this.
+    int ret = madvise(p, sb.st_size, MADV_SEQUENTIAL);
+
+    if (ret < 0) {
+        perror("madvice");
+    }
+
     printf("Printing the file mapped in memory:\n");
     for (off_t len = 0; len < sb.st_size; len++) {
         putchar(p[len]);
