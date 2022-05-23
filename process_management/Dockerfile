@@ -1,0 +1,20 @@
+# Dockerfile for running the process_management program on Debian Linux
+# Author: Andrew Jarombek
+# Date: 5/22/2022
+
+FROM ajarombek/debian-system-programming:latest
+
+LABEL maintainer="andrew@jarombek.com" \
+      version="1.0.0" \
+      description="Dockerfile for running the process_management program on Debian Linux"
+
+WORKDIR src
+COPY . .
+RUN mkdir out
+
+WORKDIR out
+RUN cmake .. \
+    && cmake --build .
+
+CMD ["-c", "./process_management"]
+ENTRYPOINT ["/bin/bash"]

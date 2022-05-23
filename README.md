@@ -38,6 +38,7 @@ docker push ajarombek/debian-system-programming:latest
 | `open_file`             | Code for opening a file using Linux system programming in C.                                      |
 | `physical_disk_block`   | Code for retrieving the physical disk blocks of a file using Linux system programming in C.       |
 | `positional_read_write` | Code for reading and writing to a file at specific positions using Linux system programming in C. |
+| `process_management`    | Code for basic process management using Linux system programming in C.                            |
 | `read_write`            | Code for reading and writing to a file using Linux system programming in C.                       |
 | `scatter_gather_io`     | Code for Linux Scatter/Gather I/O using Linux system programming in C.                            |
 | `standard_io`           | Code for Linux Standard I/O programmed in C.                                                      |
