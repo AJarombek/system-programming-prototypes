@@ -11,10 +11,35 @@ int main() {
     pid_t pid = getgid();
     printf("The current process id is: %d\n", pid);
 
+    int status;
+
     pid = fork();
 
     if (pid > 0) {
         printf("Parent process of child with id %d\n", pid);
+
+        pid = wait(&status);
+
+        if (pid == -1) {
+            perror("wait");
+            return 1;
+        }
+
+        if (WIFEXITED(status)) {
+            printf("Child process terminated normally with exit status %d\n", WEXITSTATUS(status));
+        }
+
+        if (WIFSIGNALED(status)) {
+            printf("Child process killed by signal %d %s\n", WTERMSIG(status), WCOREDUMP(status) ? "(dumped core)" : "");
+        }
+
+        if (WIFSTOPPED(status)) {
+            printf("Child process stopped by signal %d\n", WSTOPSIG(status));
+        }
+
+        if (WIFCONTINUED(status)) {
+            printf("Child process continued\n");
+        }
 
         char* args[] = {"ls", NULL};
         int ret = execvp("ls", args);
@@ -37,30 +62,6 @@ int main() {
     } else {
         perror("fork");
         return 1;
-    }
-
-    int status;
-    pid = wait(&status);
-
-    if (pid == -1) {
-        perror("wait");
-        return 1;
-    }
-
-    if (WIFEXITED(status)) {
-        printf("Child process terminated normally with exit status %d\n", WEXITSTATUS(status));
-    }
-
-    if (WIFSIGNALED(status)) {
-        printf("Child process killed by signal %d %s\n", WTERMSIG(status), WCOREDUMP(status) ? "(dumped core)" : "");
-    }
-
-    if (WIFSTOPPED(status)) {
-        printf("Child process stopped by signal %d\n", WSTOPSIG(status));
-    }
-
-    if (WIFCONTINUED(status)) {
-        printf("Child process continued\n");
     }
 
     return 0;

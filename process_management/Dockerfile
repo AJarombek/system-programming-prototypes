@@ -12,9 +12,11 @@ WORKDIR src
 COPY . .
 RUN mkdir out
 
+COPY run.sh out
+
 WORKDIR out
 RUN cmake .. \
     && cmake --build .
 
-CMD ["-c", "./process_management"]
+CMD ["-c", ". ./run.sh"]
 ENTRYPOINT ["/bin/bash"]
