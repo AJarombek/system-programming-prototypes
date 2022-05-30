@@ -33,6 +33,7 @@ docker push ajarombek/debian-system-programming:latest
 | Filename                | Description                                                                                       |
 |-------------------------|---------------------------------------------------------------------------------------------------|
 | `.run`                  | Run configurations for executing code from the repository with a Jetbrains IDE (i.e. CLion).      |
+| `daemon`                | Code for creating daemon processes using Linux system programming in C.                           |
 | `memory_map`            | Code for mapping files into memory using Linux system programming in C.                           |
 | `multiplexed_io`        | Code for performing multiplexed I/O using Linux system programming in C.                          |
 | `open_file`             | Code for opening a file using Linux system programming in C.                                      |

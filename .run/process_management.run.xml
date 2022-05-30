@@ -1,20 +1,11 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="true" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
-    <deployment type="dockerfile">
-      <settings>
-        <option name="containerName" value="system_programming_process_management" />
-        <option name="sourceFilePath" value="process_management/Dockerfile" />
-      </settings>
-    </deployment>
-    <method v="2" />
-  </configuration>
-  <configuration default="false" name="process_management" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
-    <deployment type="dockerfile">
-      <settings>
-        <option name="containerName" value="system_programming_process_management" />
-        <option name="sourceFilePath" value="process_management/Dockerfile" />
-      </settings>
-    </deployment>
-    <method v="2" />
-  </configuration>
+    <configuration default="false" name="process_management" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+        <deployment type="dockerfile">
+            <settings>
+                <option name="containerName" value="system_programming_process_management"/>
+                <option name="sourceFilePath" value="process_management/Dockerfile"/>
+            </settings>
+        </deployment>
+        <method v="2"/>
+    </configuration>
 </component>
