@@ -8,3 +8,4 @@ project(read_write C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(daemon daemon.c)
+add_executable(daemon_shorthand daemon_shorthand.c)
