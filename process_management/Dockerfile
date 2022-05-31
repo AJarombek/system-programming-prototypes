@@ -13,6 +13,7 @@ COPY . .
 RUN mkdir out
 
 COPY run.sh out
+COPY mileage_plan.txt out
 
 WORKDIR out
 RUN cmake .. \

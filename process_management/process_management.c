@@ -8,7 +8,7 @@
 #include <sys/wait.h>
 
 int main() {
-    pid_t pid = getgid();
+    pid_t pid = getpid();
     printf("The current process id is: %d\n", pid);
 
     int status;

@@ -10,4 +10,6 @@ Code for basic process management using Linux system programming in C.
 | `Dockerfile`           | Dockerfile for running the `process_management.c` program using CMake. |
 | `process_management.c` | C code which performs basic process management.                        |
 | `run.sh`               | Bash script to run the C code.                                         |
+| `sessions.c`           | C code dealing with sessions, process groups, groups, and users.       |
+| `system.c`             | C code which performs a `system()` system call to run a Bash command.  |
 | `waitpid.c`            | C code which performs a `waitpid()` system call.                       |

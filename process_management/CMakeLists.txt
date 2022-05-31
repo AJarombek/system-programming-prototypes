@@ -8,4 +8,6 @@ project(read_write C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(process_management process_management.c)
+add_executable(sessions sessions.c)
+add_executable(system system.c)
 add_executable(waitpid waitpid.c)

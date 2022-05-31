@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="true" name="physical_disk_block" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+  <configuration default="false" name="physical_disk_block" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
     <deployment type="dockerfile">
       <settings>
         <option name="containerName" value="system_programming_physical_disk_block" />

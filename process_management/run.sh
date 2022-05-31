@@ -6,3 +6,5 @@
 
 bash -c ./process_management
 bash -c ./waitpid
+bash -c ./system
+bash -c ./sessions
