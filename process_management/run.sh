@@ -10,3 +10,4 @@ bash -c ./system
 bash -c ./sessions
 bash -c ./yield
 bash -c ./priority
+bash -c ./resource_limits
