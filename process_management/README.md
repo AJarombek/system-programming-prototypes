@@ -10,6 +10,7 @@ Code for basic process management using Linux system programming in C.
 | `Dockerfile`           | Dockerfile for running the `process_management.c` program using CMake. |
 | `priority.c`           | C code which gets and sets the nice value of a process.                |
 | `process_management.c` | C code which performs basic process management.                        |
+| `processor_affinity.c` | C code which performs processor (CPU) affinity.                        |
 | `resource_limits.c`    | C code which gets and sets the resource limits of a process.           |
 | `run.sh`               | Bash script to run the C code.                                         |
 | `sessions.c`           | C code dealing with sessions, process groups, groups, and users.       |
