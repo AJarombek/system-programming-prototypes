@@ -13,6 +13,7 @@ Code for basic process management using Linux system programming in C.
 | `processor_affinity.c` | C code which performs processor (CPU) affinity.                        |
 | `resource_limits.c`    | C code which gets and sets the resource limits of a process.           |
 | `run.sh`               | Bash script to run the C code.                                         |
+| `scheduling_policy.c`  | C code for checking the scheduling policy of a process.                |
 | `sessions.c`           | C code dealing with sessions, process groups, groups, and users.       |
 | `system.c`             | C code which performs a `system()` system call to run a Bash command.  |
 | `waitpid.c`            | C code which performs a `waitpid()` system call.                       |

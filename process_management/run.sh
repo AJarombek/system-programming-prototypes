@@ -12,3 +12,4 @@ bash -c ./yield
 bash -c ./priority
 bash -c ./resource_limits
 bash -c ./processor_affinity
+bash -c ./scheduling_policy
