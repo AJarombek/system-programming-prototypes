@@ -6,3 +6,4 @@
 
 bash -c ./threading_basics
 bash -c ./mutex_basics
+bash -c ./thread_lifecycle
