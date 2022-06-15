@@ -9,10 +9,10 @@
 #include <time.h>
 
 void* start_sleepy_thread(void *arg) {
-    struct timeval sleep_tv = {.tv_sec = 1, .tv_usec = 0};
 
     for (int i = 0; i < 10; i++) {
         printf("Sleeping for one second.\n");
+        struct timeval sleep_tv = {.tv_sec = 1, .tv_usec = 0};
         select(0, NULL, NULL, NULL, &sleep_tv);
     }
 
@@ -26,6 +26,7 @@ void* start_other_thread(void *arg) {
     printf("Sleeping for three seconds.\n");
     select(0, NULL, NULL, NULL, &sleep_tv);
 
+    printf("Canceling thread #%ld.\n", (long) *other_thread);
     int ret = pthread_cancel(*other_thread);
 
     if (ret) {
