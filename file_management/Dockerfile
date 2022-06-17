@@ -13,6 +13,7 @@ COPY . .
 RUN mkdir out
 
 COPY run.sh out
+COPY workout_plan.csv out
 
 WORKDIR out
 RUN cmake ..
