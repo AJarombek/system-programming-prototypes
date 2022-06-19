@@ -9,3 +9,4 @@ ln -s workout_plan.csv workout
 ls -l workout
 
 bash -c ./basic_file_management
+bash -c ./extended_attributes

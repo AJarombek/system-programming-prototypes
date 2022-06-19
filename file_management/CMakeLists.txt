@@ -8,3 +8,4 @@ project(open_file C)
 set(CMAKE_C_STANDARD 11)
 
 add_executable(basic_file_management basic_file_management.c)
+add_executable(extended_attributes extended_attributes.c)
