@@ -1,5 +1,7 @@
 # system-programming-prototypes
 
+![Maintained Label](https://img.shields.io/badge/Maintained-Yes-brightgreen?style=for-the-badge)
+
 ### Overview
 
 System Programming code samples based on research.  The code samples are designed to be used in the CLion IDE.
@@ -35,6 +37,7 @@ docker push ajarombek/debian-system-programming:latest
 | `.run`                  | Run configurations for executing code from the repository with a Jetbrains IDE (i.e. CLion).      |
 | `daemon`                | Code for creating daemon processes using Linux system programming in C.                           |
 | `file_management`       | Code for file and directory management using Linux system programming in C.                       |
+| `memory_management`     | Code for memory management using Linux system programming in C.                                   |
 | `memory_map`            | Code for mapping files into memory using Linux system programming in C.                           |
 | `multiplexed_io`        | Code for performing multiplexed I/O using Linux system programming in C.                          |
 | `open_file`             | Code for opening a file using Linux system programming in C.                                      |
