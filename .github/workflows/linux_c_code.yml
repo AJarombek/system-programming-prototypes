@@ -16,6 +16,32 @@ on:
   workflow_dispatch:
 
 jobs:
+  daemon:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra
+
+      - name: Create a CMake Out Directory
+        run: mkdir daemon/out
+
+      - name: Copy Files to CMake Out Directory
+        run: cp daemon/run.sh daemon/out
+
+      - name: CMake Build
+        run: cd daemon/out && cmake .. && cmake --build .
+
+      - name: Run Shell Script
+        run: cd daemon/out && . ./run.sh
+
   file_management:
     runs-on: ubuntu-latest
     container: ajarombek/debian-system-programming:latest
@@ -41,3 +67,29 @@ jobs:
 
       - name: Run Shell Script
         run: cd file_management/out && . ./run.sh
+
+  memory_management:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra
+
+      - name: Create a CMake Out Directory
+        run: mkdir memory_management/out
+
+      - name: Copy Files to CMake Out Directory
+        run: cp memory_management/run.sh memory_management/out
+
+      - name: CMake Build
+        run: cd memory_management/out && cmake .. && cmake --build .
+
+      - name: Run Shell Script
+        run: cd memory_management/out && . ./run.sh
