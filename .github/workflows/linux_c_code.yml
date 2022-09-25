@@ -93,3 +93,104 @@ jobs:
 
       - name: Run Shell Script
         run: cd memory_management/out && . ./run.sh
+
+  memory_map:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra
+
+      - name: Create a CMake Out Directory
+        run: mkdir memory_map/out
+
+      - name: Copy Files to CMake Out Directory
+        run: cp memory_map/run.sh memory_map/out && memory_map/week_plan.csv memory_map/out
+
+      - name: CMake Build
+        run: cd memory_map/out && cmake .. && cmake --build .
+
+      - name: Run Shell Script
+        run: cd memory_map/out && . ./run.sh
+
+  multiplexed_io:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra
+
+      - name: Create a CMake Out Directory
+        run: mkdir multiplexed_io/out
+
+      - name: Copy Files to CMake Out Directory
+        run: cp multiplexed_io/run.sh multiplexed_io/out && multiplexed_io/mileage_goals.csv multiplexed_io/out
+
+      - name: CMake Build
+        run: cd multiplexed_io/out && cmake .. && cmake --build .
+
+      - name: Run Shell Script
+        run: cd multiplexed_io/out && . ./run.sh
+
+  open_file:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra
+
+      - name: Create a CMake Out Directory
+        run: mkdir open_file/out
+
+      - name: CMake Build
+        run: cd open_file/out && cmake .. && cmake --build .
+
+      - name: Run C Code Binary
+        run: cd open_file/out && ./open_file
+
+  physical_disk_block:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra
+
+      - name: Create a CMake Out Directory
+        run: mkdir physical_disk_block/out
+
+      - name: Copy Files to CMake Out Directory
+        run: cp physical_disk_block/spring_races.csv physical_disk_block/out
+
+      - name: CMake Build
+        run: cd physical_disk_block/out && cmake .. && cmake --build .
+
+      - name: Run C Code Binary
+        run: cd physical_disk_block/out && ./physical_disk_block

@@ -6,8 +6,12 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <sys/stat.h>
+#include <dirent.h>
+#include <errno.h>
 
 void print_cwd();
+void read_files();
 
 int main() {
     print_cwd();
@@ -45,6 +49,30 @@ int main() {
         perror("close");
         return 1;
     }
+
+    // Make a new directory called 'temp' within the current working directory.
+    ret = mkdir("temp", 777);
+
+    if (ret) {
+        perror("mkdir");
+        return 1;
+    }
+
+    printf("\nFiles in current directory after creating 'temp':\n");
+
+    // Read all the files/directories in the current directory.
+    // Same as running an 'ls' command without any flags.
+    read_files();
+
+    ret = rmdir("temp");
+
+    if (ret) {
+        perror("readdir");
+        return 1;
+    }
+
+    printf("\nFiles in current directory after deleting 'temp':\n");
+    read_files();
 }
 
 void print_cwd() {
@@ -56,4 +84,19 @@ void print_cwd() {
     }
 
     printf("Current Working Directory: %s\n", cwd);
+}
+
+void read_files() {
+    struct dirent *entry;
+    DIR *dir = opendir(".");
+
+    errno = 0;
+    while ((entry = readdir(dir)) != NULL) {
+        printf("%s\n", entry->d_name);
+    }
+
+    if (errno && !entry) {
+        perror("readdir");
+        exit(EXIT_FAILURE);
+    }
 }
