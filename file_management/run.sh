@@ -10,3 +10,4 @@ ls -l workout
 
 bash -c ./basic_file_management
 bash -c ./extended_attributes
+bash -c ./directories

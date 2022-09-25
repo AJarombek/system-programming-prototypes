@@ -27,6 +27,7 @@ int main() {
     struct Run *injuryRun;
 
     // Allocate memory aligned along a page boundary (the page size on my machine is 4096 bytes)
+    // NOTE: valloc() is no longer suggested for use.
     injuryRun = valloc(sizeof(struct Run));
 
     if (!injuryRun) {
@@ -42,6 +43,9 @@ int main() {
 
     int pageSize = getpagesize();
     printf("Current page size: %d\n", pageSize);
+
+    int voidPtrSize = sizeof(void *);
+    printf("Void pointer size: %d\n", voidPtrSize);
 
     return 0;
 }

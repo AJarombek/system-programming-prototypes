@@ -34,6 +34,7 @@ docker push ajarombek/debian-system-programming:latest
 
 | Filename                | Description                                                                                       |
 |-------------------------|---------------------------------------------------------------------------------------------------|
+| `.github`               | GitHub Actions for CI/CD pipelines.                                                               |
 | `.run`                  | Run configurations for executing code from the repository with a Jetbrains IDE (i.e. CLion).      |
 | `daemon`                | Code for creating daemon processes using Linux system programming in C.                           |
 | `file_management`       | Code for file and directory management using Linux system programming in C.                       |
