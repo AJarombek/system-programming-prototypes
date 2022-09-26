@@ -28,7 +28,7 @@ jobs:
       - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
 
       - name: Files installed from repository
-        run: ls -ltra
+        run: ls -ltra daemon
 
       - name: Create a CMake Out Directory
         run: mkdir daemon/out
@@ -54,7 +54,7 @@ jobs:
       - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
 
       - name: Files installed from repository
-        run: ls -ltra
+        run: ls -ltra file_management
 
       - name: Create a CMake Out Directory
         run: mkdir file_management/out
@@ -80,7 +80,7 @@ jobs:
       - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
 
       - name: Files installed from repository
-        run: ls -ltra
+        run: ls -ltra memory_management
 
       - name: Create a CMake Out Directory
         run: mkdir memory_management/out
@@ -106,7 +106,7 @@ jobs:
       - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
 
       - name: Files installed from repository
-        run: ls -ltra
+        run: ls -ltra memory_map
 
       - name: Create a CMake Out Directory
         run: mkdir memory_map/out
@@ -132,7 +132,7 @@ jobs:
       - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
 
       - name: Files installed from repository
-        run: ls -ltra
+        run: ls -ltra multiplexed_io
 
       - name: Create a CMake Out Directory
         run: mkdir multiplexed_io/out
@@ -158,7 +158,7 @@ jobs:
       - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
 
       - name: Files installed from repository
-        run: ls -ltra
+        run: ls -ltra open_file
 
       - name: Create a CMake Out Directory
         run: mkdir open_file/out
@@ -181,7 +181,7 @@ jobs:
       - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
 
       - name: Files installed from repository
-        run: ls -ltra
+        run: ls -ltra physical_disk_block
 
       - name: Create a CMake Out Directory
         run: mkdir physical_disk_block/out
@@ -194,3 +194,107 @@ jobs:
 
       - name: Run C Code Binary
         run: cd physical_disk_block/out && ./physical_disk_block
+
+  positional_read_write:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra positional_read_write
+
+      - name: Create a CMake Out Directory
+        run: mkdir positional_read_write/out
+
+      - name: Copy Files to CMake Out Directory
+        run: cp positional_read_write/tentative_spring_races.csv positional_read_write/out
+
+      - name: CMake Build
+        run: cd positional_read_write/out && cmake .. && cmake --build .
+
+      - name: Run C Code Binary
+        run: cd positional_read_write/out && ./positional_read_write
+
+  process_management:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra process_management
+
+      - name: Create a CMake Out Directory
+        run: mkdir process_management/out
+
+      - name: Copy Files to CMake Out Directory
+        run: cp process_management/run.sh process_management/out && cp process_management/mileage_plan.txt process_management/out
+
+      - name: CMake Build
+        run: cd process_management/out && cmake .. && cmake --build .
+
+      - name: Run Shell Script
+        run: cd process_management/out && . ./run.sh
+
+  pthreads:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra pthreads
+
+      - name: Create a CMake Out Directory
+        run: mkdir pthreads/out
+
+      - name: Copy Files to CMake Out Directory
+        run: cp pthreads/run.sh pthreads/out
+
+      - name: CMake Build
+        run: cd pthreads/out && cmake .. && cmake --build .
+
+      - name: Run Shell Script
+        run: cd pthreads/out && . ./run.sh
+
+  read_write:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra read_write
+
+      - name: Create a CMake Out Directory
+        run: mkdir read_write/out
+
+      - name: Copy Files to CMake Out Directory
+        run: cp read_write/upcoming_races.csv positional_read_write/out
+
+      - name: CMake Build
+        run: cd read_write/out && cmake .. && cmake --build .
+
+      - name: Run C Code Binary
+        run: cd read_write/out && ./read_write
