@@ -21,3 +21,5 @@ bash -c ./links
 find . -maxdepth 1 -type l -ls
 
 bash -c ./unlink
+
+ls -ltra

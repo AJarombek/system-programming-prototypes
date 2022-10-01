@@ -112,7 +112,7 @@ jobs:
         run: mkdir memory_map/out
 
       - name: Copy Files to CMake Out Directory
-        run: cp memory_map/run.sh memory_map/out && memory_map/week_plan.csv memory_map/out
+        run: cp memory_map/run.sh memory_map/out && cp memory_map/week_plan.csv memory_map/out
 
       - name: CMake Build
         run: cd memory_map/out && cmake .. && cmake --build .
@@ -138,7 +138,7 @@ jobs:
         run: mkdir multiplexed_io/out
 
       - name: Copy Files to CMake Out Directory
-        run: cp multiplexed_io/run.sh multiplexed_io/out && multiplexed_io/mileage_goals.csv multiplexed_io/out
+        run: cp multiplexed_io/run.sh multiplexed_io/out && cp multiplexed_io/mileage_goals.csv multiplexed_io/out
 
       - name: CMake Build
         run: cd multiplexed_io/out && cmake .. && cmake --build .
@@ -193,7 +193,7 @@ jobs:
         run: cd physical_disk_block/out && cmake .. && cmake --build .
 
       - name: Run C Code Binary
-        run: cd physical_disk_block/out && ./physical_disk_block
+        run: cd physical_disk_block/out && sudo ./physical_disk_block
 
   positional_read_write:
     runs-on: ubuntu-latest
@@ -291,10 +291,85 @@ jobs:
         run: mkdir read_write/out
 
       - name: Copy Files to CMake Out Directory
-        run: cp read_write/upcoming_races.csv positional_read_write/out
+        run: cp read_write/upcoming_races.csv read_write/out
 
       - name: CMake Build
         run: cd read_write/out && cmake .. && cmake --build .
 
       - name: Run C Code Binary
         run: cd read_write/out && ./read_write
+
+  scatter_gather_io:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra scatter_gather_io
+
+      - name: Create a CMake Out Directory
+        run: mkdir scatter_gather_io/out
+
+      - name: CMake Build
+        run: cd scatter_gather_io/out && cmake .. && cmake --build .
+
+      - name: Run C Code Binary
+        run: cd scatter_gather_io/out && ./scatter_gather_io
+
+  standard_io:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra standard_io
+
+      - name: Create a CMake Out Directory
+        run: mkdir standard_io/out
+
+      - name: Copy Files to CMake Out Directory
+        run: cp standard_io/run.sh standard_io/out
+
+      - name: CMake Build
+        run: cd standard_io/out && cmake .. && cmake --build .
+
+      - name: Run Shell Script
+        run: cd standard_io/out && . ./run.sh
+
+  truncate:
+    runs-on: ubuntu-latest
+    container: ajarombek/debian-system-programming:latest
+    steps:
+      - run: echo "Job running on a ${{ runner.os }} server"
+
+      - name: Check out repository code
+        uses: actions/checkout@v3
+
+      - run: echo "Checked out branch '${{ github.ref }}' of the ${{ github.repository }} repository"
+
+      - name: Files installed from repository
+        run: ls -ltra truncate
+
+      - name: Create a CMake Out Directory
+        run: mkdir truncate/out
+
+      - name: Copy Files to CMake Out Directory
+        run: cp truncate/mileage_goals.csv truncate/out
+
+      - name: CMake Build
+        run: cd truncate/out && cmake .. && cmake --build .
+
+      - name: Run C Code Binary
+        run: cd truncate/out && ./truncate
